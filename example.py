@@ -5,11 +5,12 @@ from azure.mgmt.storage import StorageManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute import ComputeManagementClient
 from haikunator import Haikunator
+from msrestazure.azure_cloud import AZURE_GERMAN_CLOUD
 
 haikunator = Haikunator()
 
 # Azure Datacenter
-LOCATION = 'westus'
+LOCATION = 'germanycentral'
 
 # Resource Group
 GROUP_NAME = 'azure-sample-group-loadbalancer'
@@ -88,12 +89,13 @@ def run_example():
     credentials = ServicePrincipalCredentials(
         client_id=os.environ['AZURE_CLIENT_ID'],
         secret=os.environ['AZURE_CLIENT_SECRET'],
-        tenant=os.environ['AZURE_TENANT_ID']
+        tenant=os.environ['AZURE_TENANT_ID'],
+        cloud_environment=AZURE_GERMAN_CLOUD
     )
-    resource_client = ResourceManagementClient(credentials, subscription_id)
-    compute_client = ComputeManagementClient(credentials, subscription_id)
-    storage_client = StorageManagementClient(credentials, subscription_id)
-    network_client = NetworkManagementClient(credentials, subscription_id)
+    resource_client = ResourceManagementClient(credentials, subscription_id, base_url=AZURE_GERMAN_CLOUD.endpoints.resource_manager)
+    compute_client = ComputeManagementClient(credentials, subscription_id, base_url=AZURE_GERMAN_CLOUD.endpoints.resource_manager)
+    storage_client = StorageManagementClient(credentials, subscription_id, base_url=AZURE_GERMAN_CLOUD.endpoints.resource_manager)
+    network_client = NetworkManagementClient(credentials, subscription_id, base_url=AZURE_GERMAN_CLOUD.endpoints.resource_manager)
 
     # Create Resource group
     print('Create Resource Group')
