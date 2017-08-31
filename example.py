@@ -377,7 +377,7 @@ def create_vm_parameters(nic_id, availset_id, vm_info):
             'admin_password': vm_info['password']
         },
         'hardware_profile': {
-            'vm_size': 'Standard_DS1'
+            'vm_size': 'Standard_D1_v2'
         },
         'storage_profile': {
             'image_reference': {
