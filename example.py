@@ -59,8 +59,8 @@ VMS_INFO = {
 # Ubuntu config
 PUBLISHER = 'Canonical'
 OFFER = 'UbuntuServer'
-SKU = '15.10'
-VERSION = '15.10.201603150'
+SKU = '16.04-LTS'
+VERSION = 'latest'
 
 # Windows config
 #PUBLISHER = 'microsoftwindowsserver'
