@@ -391,7 +391,7 @@ def create_vm_parameters(nic_id, availset_id, vm_info):
                 'caching': 'None',
                 'create_option': 'fromImage',
                 'vhd': {
-                    'uri': 'https://{}.blob.core.windows.net/vhds/{}.vhd'.format(
+                    'uri': 'https://{}.blob.core.cloudapi.de./vhds/{}.vhd'.format(
                         STORAGE_ACCOUNT_NAME, vm_info['name'])
                 }
             },
